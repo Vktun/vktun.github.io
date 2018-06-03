@@ -1,13 +1,14 @@
 window.onload = function () {
-    if(webExtensionWallet){
-        $$("#addbtn").show();
-        setTimeout(() => {
-            getMyNotes();
-          }, 10);
-    }else{
-        $$("#addbtn").hide();
-        $$("#cards").html("Please install<a href='https://github.com/ChengOrangeJu/WebExtensionWallet' class='external'>WebExtensionWallet</a>")
-    }
+  if (typeof (webExtensionWallet) === "undefined") {
+    $$("#addbtn").hide();
+    $$("#cards").html("Please install<a href='https://github.com/ChengOrangeJu/WebExtensionWallet' class='external'>WebExtensionWallet</a>")
+
+  } else {
+    $$("#addbtn").show();
+    setTimeout(() => {
+      getMyNotes();
+    }, 10);
+  }
 }
 
 function initForm() {
